@@ -1,7 +1,7 @@
 
 import { StyledFormContainer, StyledForm, StyledInput, StyledFormAddButton, StyledFormEditButton } from "./styles/FormContainer.styled"
 
-function FormContainer({ task, setTask, addTask, editMode, editTask, error }) {
+function TaskFormContainer({ task, setTask, addTask, editMode, editTask, error}) {
 
     return (
         <StyledFormContainer>
@@ -46,4 +46,4 @@ function FormContainer({ task, setTask, addTask, editMode, editTask, error }) {
 
 }
 
-export default FormContainer
+export default TaskFormContainer

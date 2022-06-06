@@ -1,13 +1,56 @@
-import { Container } from "./styles/Container.styled"
-import { StyledHeader } from "./styles/Header.styled"
+import { auth } from "../firebase"
+import { StyledHeader, StyledNav, StyledLink, StyledNavLink } from "./styles/Header.styled"
 
-function Header() {
+import { useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+
+function Header({firebaseUser}) {
+
+    const navigate = useNavigate()
+
+    const logout = () => {
+        signOut(auth)
+        
+        .then(() => {
+            navigate('/login')
+        })
+
+    }
 
     return(
         <StyledHeader>
-            <Container>
+            <StyledLink to='/'>
                 <h1>ToDo List</h1>
-            </Container>
+            </StyledLink>
+            <StyledNav>
+                <ul>
+                    <StyledNavLink to='/' exact>
+                        <li>Home</li>
+                    </StyledNavLink>
+                    {
+                        firebaseUser !== null ? (
+                            <StyledNavLink to='/admin'>
+                                <li>Admin</li>
+                            </StyledNavLink>
+                        ) : null
+                    }
+                    {
+                        firebaseUser !== null ? (
+                            <button
+                                onClick={() => logout()}
+                            > 
+                                Sign Out   
+                            </button>
+                        ) : (
+                            <StyledNavLink to='login'>
+                                <li>Login</li>
+                            </StyledNavLink>
+                        )
+                    }
+
+                </ul>
+            </StyledNav>
+
         </StyledHeader>
     )
 }

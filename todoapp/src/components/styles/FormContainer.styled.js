@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const StyledFormContainer = styled.div`
+    max-width: 500px;
+    width: 100%;
     padding: 10px 0;
+    margin: 0 auto;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -10,6 +13,7 @@ export const StyledFormContainer = styled.div`
     h2 {
         text-align: center;
     }
+
 `
 
 export const StyledForm = styled.form`
@@ -27,7 +31,7 @@ export const StyledForm = styled.form`
 `
 
 export const StyledInput = styled.input`
-
+    width: 100%;
     border: none;
     border-radius: 10px;
     padding: 15px 10px;
@@ -58,6 +62,20 @@ export const StyledFormEditButton = styled.button`
 
     background-color: ${({theme}) => theme.colors.color7};
     color: ${({theme}) => theme.colors.color9};
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+`
+
+export const StyledFormRegisterButton = styled.button`
+
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+
+    background-color: ${({theme}) => theme.colors.color3};
+    color: ${({theme}) => theme.colors.color4};
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;

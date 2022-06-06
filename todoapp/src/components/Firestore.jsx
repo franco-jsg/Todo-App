@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from './styles/Container.styled'
 import { GlobalStyles } from './styles/Global'
-import FormContainer from './FormContainer'
+import TaskFormContainer from './TaskFormContainer'
 import TasksContainer from './TasksContainer'
 
 import { useState, useEffect } from 'react'
@@ -141,7 +141,7 @@ function Firestore() {
                 editMode={editMode}
                 edit={edit}
             />
-            <FormContainer 
+            <TaskFormContainer 
                 task={task}
                 setTask={setTask}
                 addTask={addTask}
