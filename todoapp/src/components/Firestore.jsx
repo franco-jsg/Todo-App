@@ -11,7 +11,7 @@ import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, updateDoc } 
 
 
 
-function Firestore() {
+function Firestore({user}) {
 
     const [task, setTask] = useState('')
     const [tasks, setTasks] = useState([])
@@ -24,7 +24,7 @@ function Firestore() {
         
         try {
           const db = getFirestore(app)
-          const data = await getDocs(collection(db,'Tasks'))
+          const data = await getDocs(collection(db, user.uid))
           
           const arrayData = data.docs.map(doc => (
             {
@@ -41,7 +41,7 @@ function Firestore() {
   
       getData()
   
-    }, [])
+    }, [user.uid])
   
   
     const addTask = async (e) => {
@@ -60,7 +60,7 @@ function Firestore() {
           date: Date.now()
         }
   
-        const data = await addDoc(collection(db, 'Tasks'), newTask)
+        const data = await addDoc(collection(db, user.uid), newTask)
   
         setTasks([
           ...tasks,
@@ -80,7 +80,7 @@ function Firestore() {
   
       try {
         const db = getFirestore(app)
-        await deleteDoc(doc(db, 'Tasks', id))
+        await deleteDoc(doc(db, user.uid, id))
   
         const arrayFiltered = tasks.filter((item) => item.id !== id)
     
@@ -108,7 +108,7 @@ function Firestore() {
   
       try {
         const db = getFirestore(app)
-        await updateDoc(doc(db, 'Tasks', id), {
+        await updateDoc(doc(db, user.uid, id), {
           name: task
         })
   
