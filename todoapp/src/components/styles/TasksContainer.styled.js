@@ -37,6 +37,16 @@ export const StyledTask = styled.li`
 
 `
 
+export const StyledButtonContainer = styled.div`
+    display: flex;
+
+    @media screen and (max-width: 375px) {
+        flex-direction: column;
+        gap: 5px;
+
+    }
+`
+
 export const StyledEditTaskButton = styled.button`
     width: 30px;
     height: 30px;

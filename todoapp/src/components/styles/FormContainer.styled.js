@@ -81,3 +81,16 @@ export const StyledFormRegisterButton = styled.button`
     cursor: pointer;
 
 `
+
+export const StyledFormRecoveryPassButton = styled.button`
+
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+
+    background-color: ${({theme}) => theme.colors.color7};
+    color: ${({theme}) => theme.colors.color8};
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+`

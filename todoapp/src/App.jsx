@@ -3,10 +3,10 @@ import { GlobalStyles } from './components/styles/Global'
 import Header from './components/Header'
 import Admin from './components/Admin'
 import Login from './components/Login'
+import Reset from './components/Reset'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import { auth } from './firebase'
-import { Firestore } from 'firebase/firestore'
  
 const theme = {
 
@@ -56,6 +56,7 @@ function App() {
 
           <Route path='/login' element = {<Login />} />
           <Route path='/admin/*' element = {<Admin />} />
+          <Route path='/reset' element = {<Reset />} />
         </Routes>
         {/* <Footer /> */}
 

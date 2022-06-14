@@ -132,24 +132,26 @@ function Firestore({user}) {
         <>
         <GlobalStyles />
         <Container>
-            <h2>Nickname - List</h2>
-            <main>
-            <TasksContainer
-                task={task}
-                tasks={tasks}
-                deleteTask={deleteTask}
-                editMode={editMode}
-                edit={edit}
-            />
-            <TaskFormContainer 
-                task={task}
-                setTask={setTask}
-                addTask={addTask}
-                editTask={editTask}
-                editMode={editMode}
-                error={error}
-            />
-            </main>
+          {
+            <h2>{user.email}</h2>
+          }
+          <main>
+          <TasksContainer
+              task={task}
+              tasks={tasks}
+              deleteTask={deleteTask}
+              editMode={editMode}
+              edit={edit}
+          />
+          <TaskFormContainer 
+              task={task}
+              setTask={setTask}
+              addTask={addTask}
+              editTask={editTask}
+              editMode={editMode}
+              error={error}
+          />
+          </main>
         </Container>
 
         </>

@@ -1,6 +1,7 @@
-import { StyledTasksContainer, StyledTask, StyledEditTaskButton, StyledDeleteTaskButton } from "./styles/TasksContainer.styled"
+import { StyledTasksContainer, StyledTask, StyledEditTaskButton, StyledDeleteTaskButton, StyledButtonContainer } from "./styles/TasksContainer.styled"
 
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
+import moment from "moment"
 
 
 function TasksContainer({task, tasks, deleteTask, editMode, edit}) {
@@ -15,12 +16,13 @@ function TasksContainer({task, tasks, deleteTask, editMode, edit}) {
                     ) : (
                         tasks.map( item => (
                             <StyledTask key={item.id}>
-                                <span>{item.name}</span>
+                                <span>{item.name} - {moment(item.date).format('LL')} </span>
+                                
                                 {
                                     editMode ? (
                                         null
                                     ) : (
-                                        <div>
+                                        <StyledButtonContainer>
                                             <StyledEditTaskButton
                                                 onClick={() => edit(item)}
                                             >
@@ -31,7 +33,7 @@ function TasksContainer({task, tasks, deleteTask, editMode, edit}) {
                                             >
                                                 <FaTrashAlt />
                                             </StyledDeleteTaskButton>
-                                        </div>
+                                        </StyledButtonContainer>
                                         
                                     )
                                 }

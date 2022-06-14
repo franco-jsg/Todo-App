@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     & > h2 {
         text-align: center;
-        padding: 10px 0;
+        padding: 20px 0;
     }
 
     main {
@@ -21,6 +21,11 @@ export const Container = styled.div`
         flex-direction: row;
         gap: 20px;
         border-radius: 10px;
+
+        @media screen and (max-width: 375px) {
+            flex-direction: column-reverse;
+            order: 2;
+        }
     }
 
     

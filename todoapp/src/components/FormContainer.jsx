@@ -1,7 +1,12 @@
-import {StyledFormContainer, StyledForm, StyledInput, StyledFormAddButton, StyledFormRegisterButton } from './styles/FormContainer.styled'
+import {StyledFormContainer, StyledForm, StyledInput, StyledFormAddButton, StyledFormRegisterButton, StyledFormRecoveryPassButton } from './styles/FormContainer.styled'
+
+import { useNavigate } from 'react-router-dom'
 
 
-function LoginFormContainer ({email, setEmail, pass, setPass, error, isRegister, setIsRegister, processData }) {
+function FormContainer ({email, setEmail, pass, setPass, error, isRegister, setIsRegister, processData }) {
+
+    const navigate = useNavigate()
+    
     return(
         <StyledFormContainer>
             <h2>
@@ -33,6 +38,18 @@ function LoginFormContainer ({email, setEmail, pass, setPass, error, isRegister,
                         isRegister ? 'Register' : 'Login'
                     }
                 </StyledFormAddButton>
+
+                {
+                    !isRegister ? (
+                        <StyledFormRecoveryPassButton
+                            onClick={() => navigate('/reset')}
+                        >
+                            Recover password
+                        </StyledFormRecoveryPassButton>
+                    ) : null
+
+                }
+
                 <StyledFormRegisterButton
                     onClick={() => setIsRegister(!isRegister)}
                 >
@@ -45,4 +62,4 @@ function LoginFormContainer ({email, setEmail, pass, setPass, error, isRegister,
     )
 }
 
-export default LoginFormContainer
+export default FormContainer

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { auth } from '../firebase'
 
-import { useNavigate, Routes, Route } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import Firestore from './Firestore'
 
@@ -23,10 +23,6 @@ function Admin() {
 
     return(
         <>
-            {/* {
-                <h2>{user.uid}</h2>
-            } */}
-
             {
                 user && (
                     <Firestore user={user}/>

@@ -1,4 +1,4 @@
-import LoginFormContainer from "./LoginFormContainer"
+import FormContainer from "./FormContainer"
 import { Container } from "./styles/Container.styled"
 
 import {auth, app} from '../firebase'
@@ -89,7 +89,7 @@ function Login() {
         console.log('login ok!')
 
         try {
-            const res = await signInWithEmailAndPassword(auth, email, pass)
+             await signInWithEmailAndPassword(auth, email, pass)
 
             setEmail('')
             setPass('')
@@ -111,7 +111,7 @@ function Login() {
 
     return(
         <Container>
-            <LoginFormContainer 
+            <FormContainer 
                 email={email}
                 setEmail={setEmail}
                 pass={pass}
