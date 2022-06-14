@@ -1,4 +1,4 @@
-import { StyledFormContainer, StyledForm, StyledInput, StyledFormAddButton, StyledFormRecoveryPassButton } from './styles/FormContainer.styled'
+import { StyledFormContainer, StyledForm, StyledInput, StyledFormRecoveryPassButton } from './styles/FormContainer.styled'
 
 function ResetFormContainer({email, setEmail, error, processData}) {
     return(
